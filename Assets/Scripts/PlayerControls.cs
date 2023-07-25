@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControls : MonoBehaviour
 {
     public string gameOverScene;
+    public PauseMenu pauseMenu;
 
     private Rigidbody2D rb;
     private int boxSpeed = 15;
@@ -34,6 +35,7 @@ public class PlayerControls : MonoBehaviour
         // Check if Box collides with Drop object
         if (col.gameObject.name == "Drop(Clone)")
         {
+            pauseMenu.Resume();
             // Load Game Over scene
             SceneManager.LoadScene(gameOverScene);
         }
